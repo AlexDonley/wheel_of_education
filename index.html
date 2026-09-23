@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Wheel of Education</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wheel-of-fortune.css">
+  <script src="wheel-of-fortune.js" defer></script>
+</head>
+<body>
+
+<header class="marquee">
+  <div class="bulbs">
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <h1 class="display">Wheel of Education</h1>
+</header>
+
+<main>
+  <div class="scoreboard" id="scoreboard"></div>
+
+  <div class="stage" id="stage">
+    <div class="panel wheel-panel" id="wheelPanel">
+      <div class="wheel-wrap" id="wheelWrap">
+        <div class="pointer"></div>
+        <div class="wheel" id="wheel"></div>
+        <div class="hub"></div>
+      </div>
+      <button class="spin-btn display" id="spinBtn">SPIN</button>
+      <div class="swipe-hint">swipe the wheel, or tap SPIN</div>
+    </div>
+
+    <div class="panel board-panel" id="boardPanel">
+      <div class="category-tag" id="categoryTag">CATEGORY</div>
+      <div class="board" id="board"></div>
+        <div class="controls-drawer" id="controlsDrawer">
+    <div class="controls">
+      <h2>CALL A LETTER</h2>
+      <div class="alpha-grid" id="alphaGrid"></div>
+      <div class="action-row">
+        <button id="buyVowelBtn">Buy a vowel — $250</button>
+        <button id="solveBtn" class="primary">Solve the puzzle</button>
+        <button id="passBtn" class="warn">Pass turn</button>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  <div class="banner" id="banner">Set up your game to begin.</div>
+
+
+
+  <!-- <footer class="game-footer">
+    <button id="restartBtn">Restart / edit setup</button>
+  </footer> -->
+</main>
+
+<!-- ===================== SETUP OVERLAY ===================== -->
+<div class="overlay" id="overlay">
+  <div class="setup-card">
+    <h1 class="display">BEFORE THE SHOW STARTS</h1>
+    <p class="lead">Set your players, puzzles, and wheel — then hit start.</p>
+
+    <div class="setup-section">
+      <h2>Contestants <small>who's playing</small></h2>
+      <div class="field-row">
+        <label for="teamCount">Number of contestants</label>
+        <input type="number" id="teamCount" min="1" max="8" value="2">
+      </div>
+      <div class="name-grid" id="nameGrid"></div>
+    </div>
+
+    <div class="setup-section">
+      <h2>Answer bank <small>category + answer for each puzzle</small></h2>
+      <div id="answerRows"></div>
+      <button class="add-row-btn" id="addAnswerBtn">+ add another answer</button>
+    </div>
+
+    <div class="setup-section">
+      <h2>Wheel slots <small>24 slots — edit any of them</small></h2>
+      <div class="slot-grid" id="slotGrid"></div>
+      <button class="reset-btn" id="resetSlotsBtn">reset to default 24</button>
+    </div>
+
+    <div class="setup-error" id="setupError"></div>
+    <button class="start-btn display" id="startBtn">START GAME</button>
+  </div>
+</div>
+
+<!-- ===================== SOLVE MODAL ===================== -->
+<div class="modal-back hidden" id="solveModal">
+  <div class="modal-card">
+    <h3 class="display">SOLVE THE PUZZLE</h3>
+    <input type="text" id="solveInput" placeholder="Type your answer" autocomplete="off">
+    <div class="modal-actions">
+      <button class="go" id="solveGoBtn">Lock it in</button>
+      <button class="cancel" id="solveCancelBtn">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
