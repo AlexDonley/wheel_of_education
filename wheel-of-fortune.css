@@ -43,7 +43,7 @@
 
   /* ---------- Marquee header ---------- */
   header.marquee{
-    padding:18px 20px 14px;
+    padding:18px 20px 0px;
     text-align:center;
     position:relative;
   }
@@ -176,7 +176,7 @@
     letter-spacing:.06em;
     padding:8px 20px;
     border-radius:999px;
-    margin-bottom:clamp(14px,3vmin,28px);
+    margin-bottom:15px;
     text-align:center;
   }
   .board{
@@ -233,8 +233,8 @@
     filter:drop-shadow(0 2px 4px rgba(0,0,0,.5));
   }
   .wheel{
-    width: 50vh; 
-    height: 50vh;
+    width: 60vh; 
+    height: 60vh;
     border-radius:50%;
     border:8px solid var(--gold);
     box-shadow:0 0 0 4px #1a1530, 0 14px 38px rgba(0,0,0,.55);
@@ -250,7 +250,7 @@
   .wheel .seg-label{
     position:absolute;
     left:0vh;
-    top:-23vh;
+    top:-28vh;
     width:2.6em;
     transform:translateX(-50%);
     /* writing-mode:vertical-rl;
@@ -260,7 +260,7 @@
     flex-direction: column;
     align-items: center;
     font-family:'Bd',serif;
-    font-size:2vh;
+    font-size:2.5vh;
     line-height:1;
     letter-spacing:.12em;
     color:var(--cream);
@@ -353,7 +353,6 @@
 
   /* Message banner */
   .banner{
-    margin:10px 0;
     text-align:center;
     min-height:28px;
     font-size:.95rem;
@@ -526,4 +525,12 @@
     border-radius:8px;
     padding:8px 16px;
     font-size:.78rem;
+  }
+
+  .mini-flex{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
   }

@@ -292,12 +292,16 @@
     setBanner("Taking the stage...");
     el.overlay.classList.add("hidden");
 
+    // game start sfx
+    const startSound = new Audio("sfx/puzzle_blanks_reveal.mp3");
+    startSound.play();
+
     // brief reveal beat: wheel + board peek in from the sides, then the wheel takes focus
     setTimeout(function(){
       gameStarted = true;
       setPhase("spin");
       setBanner(state.contestants[0].name + "'s turn — spin the wheel!");
-    }, 700);
+    }, 5000);
   }
 
   el.startBtn.addEventListener("click", validateAndStart);
@@ -629,6 +633,10 @@
       state.revealedLetters.push(letter);
       renderBoard(letter);
 
+      // yes letter sfx
+      const yesLetSound = new Audio("sfx/yes_letter.mp3");
+      yesLetSound.play();
+
       if(!buyingVowel){
         var award = count * state.lastSpin.value;
         current.score += award;
@@ -649,6 +657,10 @@
         setPhase("guessing"); // stays guessing, refresh enablement
       }
     } else {
+      // no letter sfx
+      const noLetSound = new Audio("sfx/no_letter.mp3");
+      noLetSound.play();
+      
       setBanner("No " + letter + " in the puzzle. Turn passes.");
       syncAlphaGridState();
       setTimeout(function(){ endTurn(); }, 1200);
@@ -714,10 +726,15 @@
     var current = state.contestants[state.currentIndex];
     setBanner(current.name + " solved it! \u201c" + state.currentAnswer.answer + "\u201d — " + (fromLetters ? "" : "") + "next puzzle coming up...");
 
+    // win round sfx
+    const answerSound = new Audio("sfx/answer_reveal.mp3");
+    answerSound.play();
+
     if(state.usedAnswerIdx.length >= state.answerBank.length){
       setTimeout(endGame, 1800);
       return;
     }
+
     setTimeout(function(){
       state.currentIndex = (state.currentIndex + 1) % state.contestants.length;
       state.lastSpin = null;
@@ -725,7 +742,7 @@
       renderScoreboard();
       setPhase("spin");
       setBanner(state.contestants[state.currentIndex].name + "'s turn — spin the wheel!");
-    }, 2200);
+    }, 10000);
   }
 
   function endTurn(){
